@@ -6,11 +6,12 @@ public class ParrySystem : MonoBehaviour
 {
     // Start is called before the first frame update
     GameObject Player;
-    GameObject GUI;
+    public GameObject GUI;
     void Start()
     {
         Player= GameObject.FindWithTag("Player");
         GUI.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -18,7 +19,7 @@ public class ParrySystem : MonoBehaviour
     {
         
     }
-    IEnumerator Parry(GameObject Attacker, GameObject Defender)
+    public IEnumerator Parry(GameObject Attacker, GameObject Defender)
     {
         //Player.CanBeAttacked = false;
         bool Success = false;
@@ -27,7 +28,7 @@ public class ParrySystem : MonoBehaviour
         yield return new WaitForSeconds(5);
         if (Input.GetButton("ParryButton")){Success = true;}
         if (Success){Destroy(Attacker);}  //We could have an animation
-        //else(Player.Health -=1);
+        else{Player.GetComponent<Player>().Health -=20;}
 
     }
     

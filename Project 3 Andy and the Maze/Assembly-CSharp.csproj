@@ -54,10 +54,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Inventory.cs" />
+     <Compile Include="Assets\Pauser.cs" />
+     <Compile Include="Assets\Scripts\AI\Enemies\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Manager\InventorySystem.cs" />
+     <Compile Include="Assets\Scripts\Manager\NumberOfBuddiesUI.cs" />
      <Compile Include="Assets\Scripts\Manager\ParrySystem.cs" />
      <Compile Include="Assets\Scripts\Player\HealthBar.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\UiButton Scripts\ReturnToMainMenu.cs" />
      <None Include="Assets\Mr. Mo Base Character\Readme.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Charles Richards/Desktop/Project-3-Assets/Project 3 Andy and the Maze/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
