@@ -15,10 +15,10 @@ public class Pauser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton(Pause) && Ui.setActive){
+        if (Input.GetButton("Pause") && Ui.activeSelf){
             Ui.SetActive(false);
         }
-        else if (Input.GetButton(Pause)){
+        else if (Input.GetButton("Pause")){
             Ui.SetActive(true);
             Time.timeScale=0;
         }
