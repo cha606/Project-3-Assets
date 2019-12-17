@@ -14,14 +14,13 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Parry= GameObject.Find("ParryManager");
+        Parry = GameObject.Find("ParryManager");
         Player= GameObject.FindGameObjectWithTag("Player");
         Buddy = GameObject.FindGameObjectsWithTag("Buddy");
-    for(int i=0; i<Buddy.Length; i++ ){
-        Entity.Add(Buddy[i]);
-
-    }
-    Entity.Add(Player);
+        for(int i=0; i<Buddy.Length; i++ ){
+            Entity.Add(Buddy[i]);
+        }
+        Entity.Add(Player);
         
     }
 

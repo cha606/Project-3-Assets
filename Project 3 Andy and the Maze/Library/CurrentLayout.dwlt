@@ -47,7 +47,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 53
+  controlID: 70
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 89
+  controlID: 106
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 90
+  controlID: 107
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -336,11 +336,11 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts/Maze Generation
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/Maze Generation
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\wengf\Desktop\Project-3-Assets\Project 3 Andy and the
     Maze
@@ -348,8 +348,8 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d0270000
-    m_LastClickedID: 10192
+    m_SelectedIDs: a2530000
+    m_LastClickedID: 21410
     m_ExpandedIDs: 00000000d0270000e8270000cc280000fe29000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000f8b60000780a00000a2c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -497,23 +497,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d22a0000
-      m_LastClickedID: 10962
-      m_ExpandedIDs: b0fbfffffa300000
+      m_SelectedIDs: 9af3ffff
+      m_LastClickedID: -3174
+      m_ExpandedIDs: a6f0ffffb0fbffffd22a00003c2e0000762e00007c2e000030300000523000008e300000163100001c310000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Maze Generator
+        m_OriginalName: Maze Generator
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -3174
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 4
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -549,14 +549,14 @@ MonoBehaviour:
     height: 508
   m_PersistentViewDataDictionary: {fileID: 0}
   m_WindowGUID: 3afea20c7152a7047b87bf9d605c7b17
-  m_SceneLighting: 1
+  m_SceneLighting: 0
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.3454442, y: 0.46860743, z: -2.923049}
+    m_Target: {x: 15.945742, y: -6.756256, z: 38.12785}
     speed: 2
-    m_Value: {x: 2.3454442, y: 0.46860743, z: -2.923049}
+    m_Value: {x: 15.945742, y: -6.756256, z: 38.12785}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -584,13 +584,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.016571594, y: -0.98034024, z: 0.17263481, w: 0.09410516}
+    m_Target: {x: 0.5050455, y: -0.49483308, z: 0.50777906, w: 0.49216852}
     speed: 2
-    m_Value: {x: 0.016571594, y: -0.98034024, z: 0.17263481, w: 0.09410516}
+    m_Value: {x: 0.5050455, y: -0.49483308, z: 0.50777906, w: 0.49216852}
   m_Size:
-    m_Target: 1360.767
+    m_Target: 100.85615
     speed: 2
-    m_Value: 1360.767
+    m_Value: 100.85615
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -650,7 +650,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1

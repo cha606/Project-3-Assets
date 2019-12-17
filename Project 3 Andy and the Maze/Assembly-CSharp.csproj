@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\Manager\InventorySystem.cs" />
     <Compile Include="Assets\Scripts\Manager\NumberOfBuddiesUI.cs" />
     <Compile Include="Assets\Scripts\Manager\ParrySystem.cs" />
+    <Compile Include="Assets\Scripts\Maze Generation\CellSideGenerator.cs" />
+    <Compile Include="Assets\Scripts\Maze Generation\MazeGenerator.cs" />
     <Compile Include="Assets\Scripts\Player\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\UiButton Scripts\ReturnToMainMenu.cs" />
