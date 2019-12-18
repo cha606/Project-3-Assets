@@ -5,34 +5,19 @@ using UnityEngine;
 
 public class MazeGenerator : MonoBehaviour
 {
-    public GameObject cellAsset;
-    public int mazeSize; // SIZE OF MAZE
-    static void returnIntInput(string errorMessage, out int number)
-    {
-        string input = Console.ReadLine();
-
-        //Repeat error message if input is invalid, if input is valid, TryParse changes number
-        while (!(Int32.TryParse(input, out number)))
-        {
-            Console.WriteLine(errorMessage);
-            input = Console.ReadLine();
-        }
-    }
-
+    public GameObject cell;
+    public int mazeSize;
+    public GameObject player;
     void Start()
     {
-        int rowCount = mazeSize;
-        int colCount = mazeSize;
         //Creates empty maze
-        Maze maze = new Maze(rowCount, colCount);
-        //Generates maze
+        Maze maze = new Maze(mazeSize, mazeSize, cell, player);
         maze.generateMaze();
     }
 }
 
 class Cell
 {
-
     //{left, right, top, bottom};
     //false is closed, true is open
     public bool[] sides = { false, false, false, false };
@@ -60,8 +45,10 @@ class Maze
     private int numOfCols;
     private int currRow; //current row index of generator
     private int currCol; //current col index of generator
+    private GameObject cell;
+    private GameObject player;
 
-    public Maze(int rowCount, int colCount)
+    public Maze(int rowCount, int colCount, GameObject whatever, GameObject p)
     {
         //Initializes maze size and picks random location
         numOfRows = rowCount;
@@ -69,10 +56,12 @@ class Maze
         mazeCells = new Cell[numOfRows, numOfCols];
         currRow = randy.Next(0, numOfRows);
         currCol = randy.Next(0, numOfCols);
+        player = p;
 
         //Generates cell in maze and add onto stack
         mazeCells[currRow, currCol] = new Cell(currRow, currCol);
         cellPath.Push(mazeCells[currRow, currCol]);
+        cell = whatever;
     }
 
     void generateNextCell()
@@ -136,13 +125,13 @@ class Maze
                     break;
             }
         }
-
-        if (cellPath.Count != 0)
-            generateNextCell();
     }
 
     private void createExits()
     {
+        int[] opening;
+        int[] exit;
+
         //Adds cell the ghetto way
         List<Cell> outerCells = new List<Cell>();
         for (int x = 0; x < numOfRows; x++)
@@ -158,7 +147,7 @@ class Maze
 
         //Picks the first exit and depending on its location, choose the right side to open
         int index = randy.Next(outerCells.Count);
-        int[] opening = new int[] { outerCells[index].rowIndex, outerCells[index].colIndex };
+        opening = new int[] { outerCells[index].rowIndex, outerCells[index].colIndex };
         if (opening[0] == 0)
             mazeCells[opening[0], opening[1]].openSide(2);
         else if (opening[0] == numOfRows - 1)
@@ -174,83 +163,33 @@ class Maze
         //Resets index and opening location and create second exit.
         outerCells.RemoveAt(index);
         index = randy.Next(outerCells.Count);
-        opening = new int[] { outerCells[index].rowIndex, outerCells[index].colIndex };
-        if (opening[0] == 0)
-            mazeCells[opening[0], opening[1]].openSide(2);
-        else if (opening[0] == numOfRows - 1)
-            mazeCells[opening[0], opening[1]].openSide(3);
-        else if (opening[1] == 0)
-            mazeCells[opening[0], opening[1]].openSide(0);
-        else if (opening[1] == numOfCols - 1)
-            mazeCells[opening[0], opening[1]].openSide(1);
+        exit = new int[] { outerCells[index].rowIndex, outerCells[index].colIndex };
+        if (exit[0] == 0)
+            mazeCells[exit[0], exit[1]].openSide(2);
+        else if (exit[0] == numOfRows - 1)
+            mazeCells[exit[0], exit[1]].openSide(3);
+        else if (exit[1] == 0)
+            mazeCells[exit[0], exit[1]].openSide(0);
+        else if (exit[1] == numOfCols - 1)
+            mazeCells[exit[0], exit[1]].openSide(1);
         else
             Console.WriteLine("Exit machine broke");
+
+        player.transform.position = new Vector3(opening[0] * 25f, 2f, opening[1] * 25f); //moves deh player do the entranx cell.
     }
 
     public void generateMaze()
     {
-        generateNextCell();
+        while (cellPath.Count != 0)
+            generateNextCell();
         createExits();
-        float startingPosX = 0f;
-        float startingPosZ = 0f;
 
-    }
-
-    public override string ToString()
-    {
-        String mazeString = "+";
-
-        //Create top row first
-        for (int y = 0; y < numOfCols; y++)
+        for (int row = 0; row < numOfRows; row++)
         {
-            if (mazeCells[0, y].sides[2])
-                mazeString += "  +";
-            else
-                mazeString += "--+";
-        }
-        mazeString += "\n";
-
-        //Outer for loop for the rows
-        //Need to loop through columns in row twice
-        for (int x = 0; x < numOfRows; x++)
-        {
-            //Cell sides
-            for (int y = 0; y < numOfCols; y++)
+            for (int col = 0; col < numOfCols; col++)
             {
-                //Prints cells' left wall
-                if (mazeCells[x, y].sides[0])
-                    mazeString += " ";
-                else
-                    mazeString += "|";
-
-                //Adds space between walls
-                mazeString += "  ";
-
-                //If we're on the last cell, print the right wall and go to next row
-                if (y == numOfCols - 1)
-                {
-                    if (mazeCells[x, y].sides[1])
-                        mazeString += " \n";
-                    else
-                        mazeString += "|\n";
-                }
-
-            }
-
-            //Cell bottom
-            for (int y = 0; y < numOfCols; y++)
-            {
-                if (mazeCells[x, y].sides[3])
-                    mazeString += "+  ";
-                else
-                    mazeString += "+--";
-
-                if (y == numOfCols - 1)
-                    mazeString += "+\n";
+                UnityEngine.Object.Instantiate(cell, new Vector3(col * 25f, 0f, row * 25f), new Quaternion(0f, 0f, 0f, 0f)).GetComponent<CellSideFixer>().deleteSides(mazeCells[row, col].sides);
             }
         }
-
-        return mazeString;
     }
-
 }
