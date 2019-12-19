@@ -175,7 +175,7 @@ class Maze
         else
             Console.WriteLine("Exit machine broke");
 
-        player.transform.position = new Vector3(opening[0] * 25f, 2f, opening[1] * 25f); //moves deh player do the entranx cell.
+        player.transform.position = new Vector3(opening[1] * 25f, 2f, opening[0] * 25f); //moves deh player do the entranx cell.
     }
 
     public void generateMaze()

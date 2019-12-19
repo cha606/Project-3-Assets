@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -156,24 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ui: {fileID: 477291599}
---- !u!114 &110230258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630278902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec4825b506a9c2e4296967813297714f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JumpFactor: 10
-  Health: 100
-  isGrounded: 1
-  DeathScreen: {fileID: 0}
-  runFactor: 10
-  rb: {fileID: 110230261}
 --- !u!54 &110230261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -589,7 +571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -413}
+  m_AnchoredPosition: {x: 0, y: -203}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &211012124
@@ -7761,7 +7743,6 @@ GameObject:
   - component: {fileID: 1630269040}
   - component: {fileID: 1639739536}
   - component: {fileID: 110230261}
-  - component: {fileID: 110230258}
   - component: {fileID: 1630278903}
   - component: {fileID: 1630278904}
   m_Layer: 0
@@ -13744,6 +13725,36 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00000023841858, y: 0.2800216, z: 1.3441722}
     m_Extent: {x: 1.1439537, y: 0.8757151, z: 1.4387252}
   m_DirtyAABB: 0
+--- !u!1 &1684203511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1684203512}
+  m_Layer: 0
+  m_Name: Monkey Friends
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1684203512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684203511}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.940274, y: 105.27231, z: 0.52433014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1784079980
 GameObject:
   m_ObjectHideFlags: 0
